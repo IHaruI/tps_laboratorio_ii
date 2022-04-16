@@ -19,14 +19,27 @@ namespace TP1_1
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Inicializa las operaciones e impide la edicion por teclado en combobox.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormCalculadora_Load(object sender, EventArgs e)
         {
+            cmbOperador.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbOperador.Items.Add("+");
             cmbOperador.Items.Add("-");
             cmbOperador.Items.Add("/");
             cmbOperador.Items.Add("*");
         }
 
+        /// <summary>
+        /// Opera con dos numeros (string) con un operador (string).
+        /// </summary>
+        /// <param name="numero1"> Primer numero a operar (string) </param>
+        /// <param name="numero2"> Segundo numero a operar (string) </param>
+        /// <param name="operador"> Operador (string) </param>
+        /// <returns></returns>
         private static double Operar(string numero1, string numero2, string operador)
         {
             Operando num1 = new Operando(numero1);
@@ -35,6 +48,9 @@ namespace TP1_1
             return Calculadora.Operar(num1, num2, operador);
         }
 
+        /// <summary>
+        /// Limpia el TextBox, ComboBox, Labels.
+        /// </summary>
         private void Limpiar()
         {
             this.txtNumero1.Text = string.Empty;
@@ -42,6 +58,12 @@ namespace TP1_1
             this.cmbOperador.Text = string.Empty;
             this.lblResultado.Text = string.Empty;
         }
+
+        /// <summary>
+        /// Evento del boton Operar.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOperar_Click(object sender, EventArgs e)
         {
             if (this.cmbOperador.Text == "+" || this.cmbOperador.Text == "-" || this.cmbOperador.Text == "/" || this.cmbOperador.Text == "*")
@@ -52,26 +74,51 @@ namespace TP1_1
             }
         }
 
+        /// <summary>
+        /// Envento del boton Limpiar.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             this.Limpiar();
         }
 
+        /// <summary>
+        /// Evento del boton Cerrar.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Evento del boton Convertir a Binario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnConvertirABinario_Click(object sender, EventArgs e)
         {
             this.lblResultado.Text = Operando.DecimaBinario(this.lblResultado.Text);
         }
 
+        /// <summary>
+        /// Evento del boton Decimal a Binario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnConvertirADecimal_Click(object sender, EventArgs e)
         {
             this.lblResultado.Text = Operando.BinarioDecimal(this.lblResultado.Text);
         }
 
+        /// <summary>
+        /// Pregunta si desea salir del Form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormCalculadora_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (MessageBox.Show("¿Seguro que quiere salir?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
