@@ -26,7 +26,9 @@ namespace TP1_1
         /// <param name="e"></param>
         private void FormCalculadora_Load(object sender, EventArgs e)
         {
+            // Impide la escritura del comboBox.
             cmbOperador.DropDownStyle = ComboBoxStyle.DropDownList;
+
             cmbOperador.Items.Add("+");
             cmbOperador.Items.Add("-");
             cmbOperador.Items.Add("/");
@@ -120,6 +122,7 @@ namespace TP1_1
         {
             if (MessageBox.Show("¿Seguro que quiere salir?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
             {
+                // Permite cancelar el cierre del formulario actual.
                 e.Cancel = true;
             }
         }

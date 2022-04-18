@@ -106,12 +106,11 @@ namespace Entidades
         public static string DecimaBinario(double numero)
         {
             string binario = "";
-            int d = (int) numero;
-            int resto;
+            int num = (int) numero;
+
             do
             {
-                resto = d % 2;
-                if (resto == 0)
+                if ((num % 2) == 0)
                 {
                     //binario += resto;
                     binario = binario.Insert(0, "0");
@@ -121,8 +120,9 @@ namespace Entidades
                     //binario += "1";
                     binario = binario.Insert(0, "1");
                 }
-                d = d / 2;
-            } while (d > 0);
+                num = num / 2;
+            } while (num > 0);
+
             return binario;
         }
 
