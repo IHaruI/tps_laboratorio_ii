@@ -1,0 +1,8 @@
+Yenier,Venegas,40.000,12/5/2022 11:26,Oncologia
+Fernando,Gomez,32.100,11/3/2022 11:21,Cardiologia
+Samuel,Jackson,20.000,25/5/2022 11:26,Psicologia
+Ramon,Martinez,32.100,20/2/2021 11:21,Ginecologia
+Guillermo,Del Toro,40.000,1/1/2021 11:26,Neumologia
+Clara,Arce,32.100,2/3/2020 11:21,Cardiologia
+Luis,Tomas,40.000,9/9/2019 11:26,Nutricion
+Sonia,Ruiz,32.100,5/8/2012 11:21,Nutricion

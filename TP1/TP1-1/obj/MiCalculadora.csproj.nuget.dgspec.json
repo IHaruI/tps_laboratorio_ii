@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\patri\\Downloads\\tps_laboratorio_ii-master\\TP1\\TP1-1\\MiCalculadora.csproj": {}
+    "C:\\Users\\patri\\Documents\\Git\\2do Cuatrimestre\\TP1\\TP1-1\\MiCalculadora.csproj": {}
   },
   "projects": {
-    "C:\\Users\\patri\\Downloads\\tps_laboratorio_ii-master\\TP1\\Entidades\\Entidades.csproj": {
+    "C:\\Users\\patri\\Documents\\Git\\2do Cuatrimestre\\TP1\\Entidades\\Entidades.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\patri\\Downloads\\tps_laboratorio_ii-master\\TP1\\Entidades\\Entidades.csproj",
+        "projectUniqueName": "C:\\Users\\patri\\Documents\\Git\\2do Cuatrimestre\\TP1\\Entidades\\Entidades.csproj",
         "projectName": "Entidades",
-        "projectPath": "C:\\Users\\patri\\Downloads\\tps_laboratorio_ii-master\\TP1\\Entidades\\Entidades.csproj",
+        "projectPath": "C:\\Users\\patri\\Documents\\Git\\2do Cuatrimestre\\TP1\\Entidades\\Entidades.csproj",
         "packagesPath": "C:\\Users\\patri\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\patri\\Downloads\\tps_laboratorio_ii-master\\TP1\\Entidades\\obj\\",
+        "outputPath": "C:\\Users\\patri\\Documents\\Git\\2do Cuatrimestre\\TP1\\Entidades\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\patri\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -58,14 +58,14 @@
         }
       }
     },
-    "C:\\Users\\patri\\Downloads\\tps_laboratorio_ii-master\\TP1\\TP1-1\\MiCalculadora.csproj": {
+    "C:\\Users\\patri\\Documents\\Git\\2do Cuatrimestre\\TP1\\TP1-1\\MiCalculadora.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\patri\\Downloads\\tps_laboratorio_ii-master\\TP1\\TP1-1\\MiCalculadora.csproj",
+        "projectUniqueName": "C:\\Users\\patri\\Documents\\Git\\2do Cuatrimestre\\TP1\\TP1-1\\MiCalculadora.csproj",
         "projectName": "MiCalculadora",
-        "projectPath": "C:\\Users\\patri\\Downloads\\tps_laboratorio_ii-master\\TP1\\TP1-1\\MiCalculadora.csproj",
+        "projectPath": "C:\\Users\\patri\\Documents\\Git\\2do Cuatrimestre\\TP1\\TP1-1\\MiCalculadora.csproj",
         "packagesPath": "C:\\Users\\patri\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\patri\\Downloads\\tps_laboratorio_ii-master\\TP1\\TP1-1\\obj\\",
+        "outputPath": "C:\\Users\\patri\\Documents\\Git\\2do Cuatrimestre\\TP1\\TP1-1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\patri\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -82,8 +82,8 @@
           "net5.0-windows7.0": {
             "targetAlias": "net5.0-windows",
             "projectReferences": {
-              "C:\\Users\\patri\\Downloads\\tps_laboratorio_ii-master\\TP1\\Entidades\\Entidades.csproj": {
-                "projectPath": "C:\\Users\\patri\\Downloads\\tps_laboratorio_ii-master\\TP1\\Entidades\\Entidades.csproj"
+              "C:\\Users\\patri\\Documents\\Git\\2do Cuatrimestre\\TP1\\Entidades\\Entidades.csproj": {
+                "projectPath": "C:\\Users\\patri\\Documents\\Git\\2do Cuatrimestre\\TP1\\Entidades\\Entidades.csproj"
               }
             }
           }
