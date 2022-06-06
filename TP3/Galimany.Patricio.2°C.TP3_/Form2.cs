@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Xml;
 using Biblioteca;
 
 namespace Galimany.Patricio._2_C.TP3_
@@ -23,8 +24,8 @@ namespace Galimany.Patricio._2_C.TP3_
         }
         private void Form2_Load(object sender, EventArgs e)
         {
-            dgvCliente.DataSource = null;
-            dgvCliente.DataSource = empleado.ToList();
+            dgvEmpleado.DataSource = null;
+            dgvEmpleado.DataSource = empleado.ToList();
         }
         /// <summary>
         /// Propiedad de Empleado.
@@ -39,9 +40,9 @@ namespace Galimany.Patricio._2_C.TP3_
             // Elimina el registro seleccionado del DataGridView. Si no hay empleados cargados lanza un mensaje.
             if (empleado.Count > 0)
             {
-                empleado.RemoveAt(dgvCliente.CurrentRow.Index);
-                dgvCliente.DataSource = null;
-                dgvCliente.DataSource = empleado.ToList();
+                empleado.RemoveAt(dgvEmpleado.CurrentRow.Index);
+                dgvEmpleado.DataSource = null;
+                dgvEmpleado.DataSource = empleado.ToList();
                 MessageBox.Show("¡Se elimino el registro!", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
@@ -72,7 +73,7 @@ namespace Galimany.Patricio._2_C.TP3_
                 if (!string.IsNullOrEmpty(this.openFileDialog1.FileName))
                 {
                     archivo = this.openFileDialog1.FileName;
-                    lecturaArchivo(dgvCliente, ',', archivo);
+                    lecturaArchivo(dgvEmpleado, ',', archivo);
                 }
             }
             catch (FileNotFoundException ex)
@@ -112,13 +113,107 @@ namespace Galimany.Patricio._2_C.TP3_
 
                         empleado.Add(e);
 
-                        dgvCliente.DataSource = null;
-                        dgvCliente.DataSource = empleado.ToList();
+                        dgvEmpleado.DataSource = null;
+                        dgvEmpleado.DataSource = empleado.ToList();
                     }
                 }
             }while (!(sLine == null));
 
             objReader.Close();
+        }
+
+        private void btnXML_Click(object sender, EventArgs e)
+        {
+            ExportarXML();
+        }
+
+        /// <summary>
+        /// Exporta un archivo XML.
+        /// </summary>
+        private void ExportarXML()
+        {
+            var ds = new DataSet();
+            var dt = new DataTable();
+
+            try
+            {
+                // Se agrega las columnas de la grilla a el DateTable.
+                foreach (var columno in dgvEmpleado.Columns.Cast<DataGridViewColumn>())
+                {
+                    dt.Columns.Add();
+                }
+
+                // Se declara un tipo Object y se le pasara la cantidad de columnas de la grilla.
+                // Se llenara en la variable la informacion de la grilla.
+                var valorCelda = new object[dgvEmpleado.Columns.Count];
+
+                // Recorrerá las filas de la grilla
+                foreach (var row in dgvEmpleado.Rows.Cast<DataGridViewRow>())
+                {
+                    // Recorrerá cada celda de la fila y lo guardara en la variable valorCelda.
+                    for (int i = 0; i < row.Cells.Count; i++)
+                    {
+                        valorCelda[i] = row.Cells[i].Value;
+                    }
+                    // Se guarda la informacion de la variable al DateTable.
+                    dt.Rows.Add(valorCelda);
+                }
+                // Se llenara la DateSet con la informacion del DateTable.
+                ds.Tables.Add(dt);
+
+                // Se creara el archivo .XML con la informacion del DataSet.
+                string archivo = "Archivo.XML";
+                FileStream stream = new FileStream(archivo, FileMode.Create);
+                XmlTextWriter xmlWriter = new XmlTextWriter(stream, System.Text.Encoding.Unicode);
+                ds.WriteXml(xmlWriter);
+                xmlWriter.Close();
+                MessageBox.Show("Se ha Exportado el archivo.XML correctamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void btnImportarXML_Click(object sender, EventArgs e)
+        {
+            llamarXML();
+        }
+
+        /// <summary>
+        /// Importa un archivo XML.
+        /// </summary>
+        private void llamarXML()
+        {
+            string nombre = "Archivo.XML";
+
+            // Se listara la informacion del archivo.XML.
+            try
+            {
+                if (File.Exists(nombre))
+                {
+                    DataTable dt; 
+                    DataSet ds = new DataSet();
+
+                    ds.ReadXml(nombre);
+                    dt = ds.Tables[0];
+
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        Empleado e = new Empleado(dt.Rows[i][0].ToString(), dt.Rows[i][1].ToString(), decimal.Parse((string)dt.Rows[i][2]), DateTime.Parse((string)dt.Rows[i][3]), dt.Rows[i][4].ToString());
+
+                        empleado.Add(e);
+
+                        dgvEmpleado.DataSource = null;
+                        dgvEmpleado.DataSource = empleado.ToList();
+                    }
+                }
+                MessageBox.Show("Se ha Importado el archivo.XML correctamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch(IndexOutOfRangeException ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

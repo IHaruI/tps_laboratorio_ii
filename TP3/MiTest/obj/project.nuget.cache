@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZAThrlOaUYufE3H82fPPNooljJPaXqYN/LsUEyFJ0BWpvTqMCnVVPE22ErpQvgBRu3wTnCyDZdEZiJcI1alydA==",
+  "dgSpecHash": "iD0/pi8tPSPGvyYwFmOSwP1EVaSER+5M2tPZ3USwf/biVYSVxPJtr6NPcana8fMtTfh0hJ0vZApuWa4/UGhQCw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\patri\\Desktop\\Galimany.Patricio.2°C.TP3_\\MiTest\\MiTest.csproj",
+  "projectFilePath": "C:\\Users\\patri\\source\\repos\\Galimany.Patricio.2°C.TP3_\\MiTest\\MiTest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\patri\\.nuget\\packages\\coverlet.collector\\3.1.0\\coverlet.collector.3.1.0.nupkg.sha512",
     "C:\\Users\\patri\\.nuget\\packages\\microsoft.codecoverage\\16.11.0\\microsoft.codecoverage.16.11.0.nupkg.sha512",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\patri\\Desktop\\Galimany.Patricio.2°C.TP3_\\Galimany.Patricio.2°C.TP3_\\Galimany.Patricio.2°C.TP3_.csproj": {}
+    "C:\\Users\\patri\\source\\repos\\Galimany.Patricio.2°C.TP3_\\Galimany.Patricio.2°C.TP3_\\Galimany.Patricio.2°C.TP3_.csproj": {}
   },
   "projects": {
-    "C:\\Users\\patri\\Desktop\\Galimany.Patricio.2°C.TP3_\\Biblioteca\\Biblioteca.csproj": {
+    "C:\\Users\\patri\\source\\repos\\Galimany.Patricio.2°C.TP3_\\Biblioteca\\Biblioteca.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\patri\\Desktop\\Galimany.Patricio.2°C.TP3_\\Biblioteca\\Biblioteca.csproj",
+        "projectUniqueName": "C:\\Users\\patri\\source\\repos\\Galimany.Patricio.2°C.TP3_\\Biblioteca\\Biblioteca.csproj",
         "projectName": "Biblioteca",
-        "projectPath": "C:\\Users\\patri\\Desktop\\Galimany.Patricio.2°C.TP3_\\Biblioteca\\Biblioteca.csproj",
+        "projectPath": "C:\\Users\\patri\\source\\repos\\Galimany.Patricio.2°C.TP3_\\Biblioteca\\Biblioteca.csproj",
         "packagesPath": "C:\\Users\\patri\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\patri\\Desktop\\Galimany.Patricio.2°C.TP3_\\Biblioteca\\obj\\",
+        "outputPath": "C:\\Users\\patri\\source\\repos\\Galimany.Patricio.2°C.TP3_\\Biblioteca\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\patri\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -58,14 +58,14 @@
         }
       }
     },
-    "C:\\Users\\patri\\Desktop\\Galimany.Patricio.2°C.TP3_\\Galimany.Patricio.2°C.TP3_\\Galimany.Patricio.2°C.TP3_.csproj": {
+    "C:\\Users\\patri\\source\\repos\\Galimany.Patricio.2°C.TP3_\\Galimany.Patricio.2°C.TP3_\\Galimany.Patricio.2°C.TP3_.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\patri\\Desktop\\Galimany.Patricio.2°C.TP3_\\Galimany.Patricio.2°C.TP3_\\Galimany.Patricio.2°C.TP3_.csproj",
+        "projectUniqueName": "C:\\Users\\patri\\source\\repos\\Galimany.Patricio.2°C.TP3_\\Galimany.Patricio.2°C.TP3_\\Galimany.Patricio.2°C.TP3_.csproj",
         "projectName": "Galimany.Patricio.2°C.TP3_",
-        "projectPath": "C:\\Users\\patri\\Desktop\\Galimany.Patricio.2°C.TP3_\\Galimany.Patricio.2°C.TP3_\\Galimany.Patricio.2°C.TP3_.csproj",
+        "projectPath": "C:\\Users\\patri\\source\\repos\\Galimany.Patricio.2°C.TP3_\\Galimany.Patricio.2°C.TP3_\\Galimany.Patricio.2°C.TP3_.csproj",
         "packagesPath": "C:\\Users\\patri\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\patri\\Desktop\\Galimany.Patricio.2°C.TP3_\\Galimany.Patricio.2°C.TP3_\\obj\\",
+        "outputPath": "C:\\Users\\patri\\source\\repos\\Galimany.Patricio.2°C.TP3_\\Galimany.Patricio.2°C.TP3_\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\patri\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -82,8 +82,8 @@
           "net5.0-windows7.0": {
             "targetAlias": "net5.0-windows",
             "projectReferences": {
-              "C:\\Users\\patri\\Desktop\\Galimany.Patricio.2°C.TP3_\\Biblioteca\\Biblioteca.csproj": {
-                "projectPath": "C:\\Users\\patri\\Desktop\\Galimany.Patricio.2°C.TP3_\\Biblioteca\\Biblioteca.csproj"
+              "C:\\Users\\patri\\source\\repos\\Galimany.Patricio.2°C.TP3_\\Biblioteca\\Biblioteca.csproj": {
+                "projectPath": "C:\\Users\\patri\\source\\repos\\Galimany.Patricio.2°C.TP3_\\Biblioteca\\Biblioteca.csproj"
               }
             }
           }
