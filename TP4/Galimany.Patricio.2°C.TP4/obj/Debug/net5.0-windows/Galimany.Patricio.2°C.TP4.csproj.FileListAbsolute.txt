@@ -27,3 +27,6 @@ C:\Users\patri\source\repos\Galimany.Patricio.2°C.TP4\Galimany.Patricio.2°C.TP
 C:\Users\patri\source\repos\Galimany.Patricio.2°C.TP4\Galimany.Patricio.2°C.TP4\obj\Debug\net5.0-windows\Galimany.Patricio._2_C.TP4.Properties.Resources.resources
 C:\Users\patri\source\repos\Galimany.Patricio.2°C.TP4\Galimany.Patricio.2°C.TP4\obj\Debug\net5.0-windows\Galimany.Patricio._2_C.TP4.Usuario.resources
 C:\Users\patri\source\repos\Galimany.Patricio.2°C.TP4\Galimany.Patricio.2°C.TP4\obj\Debug\net5.0-windows\Galimany.Patricio._2_C.TP4.Login.resources
+C:\Users\patri\source\repos\Galimany.Patricio.2°C.TP4\Galimany.Patricio.2°C.TP4\bin\Debug\net5.0-windows\Biblioteca.dll
+C:\Users\patri\source\repos\Galimany.Patricio.2°C.TP4\Galimany.Patricio.2°C.TP4\bin\Debug\net5.0-windows\Biblioteca.pdb
+C:\Users\patri\source\repos\Galimany.Patricio.2°C.TP4\Galimany.Patricio.2°C.TP4\obj\Debug\net5.0-windows\Galimany.Patricio._2_C.TP4.Tienda.resources

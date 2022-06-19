@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using Biblioteca;
 
 namespace Galimany.Patricio._2_C.TP4
 {

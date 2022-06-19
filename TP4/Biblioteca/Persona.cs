@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Galimany.Patricio._2_C.TP4
+namespace Biblioteca
 {
-    public class Alumno
+    public abstract class Persona
     {
         private Int64 id;
         private string nombre;
@@ -14,13 +10,13 @@ namespace Galimany.Patricio._2_C.TP4
         private string direccion;
         private string fechaDeNacimiento;
 
-        public Alumno()
+        public Persona()
         {
 
         }
-        public Alumno(Int64 id, string nombre, string apellido, string direccion, string fechaDeNacimiento)
+        public Persona(Int64 id, string nombre, string apellido, string direccion, string fechaDeNacimiento)
         {
-            this.Id = id;
+            this.id = id;
             this.nombre = nombre;
             this.apellido = apellido;
             this.direccion = direccion;
@@ -51,6 +47,5 @@ namespace Galimany.Patricio._2_C.TP4
             get { return this.fechaDeNacimiento; }
             set { this.fechaDeNacimiento = value; }
         }
-
     }
 }

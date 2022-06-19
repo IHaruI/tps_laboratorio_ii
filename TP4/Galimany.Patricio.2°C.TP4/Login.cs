@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Biblioteca;
 
 namespace Galimany.Patricio._2_C.TP4
 {
@@ -19,18 +20,7 @@ namespace Galimany.Patricio._2_C.TP4
 
         private void btnEntrar_Click(object sender, EventArgs e)
         {
-            if (UsuarioDAL.Auntentificar(txtUsuario.Text, txtContraseña.Text) > 0)
-            {
-                this.Hide();
-
-                Registro registro = new Registro();
-
-                registro.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Error en los datos", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            Identificar("Alumno");
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -42,11 +32,11 @@ namespace Galimany.Patricio._2_C.TP4
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
-                if (UsuarioDAL.Auntentificar(txtUsuario.Text, txtContraseña.Text) > 0)
+                if (UsuarioDAL.Auntentificar(txtUsuario.Text, txtContraseña.Text, "Alumno") > 0)
                 {
                     this.Hide();
 
-                    Registro registro = new Registro();
+                    Registro registro = new Registro("Alumno");
 
                     registro.ShowDialog();
                 }
@@ -55,6 +45,30 @@ namespace Galimany.Patricio._2_C.TP4
                     MessageBox.Show("Error en los datos", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+        private void btnProfesor_Click(object sender, EventArgs e)
+        {
+            Identificar("Profesor");
+        }
+        private void Identificar(string usuario)
+        {
+            if (UsuarioDAL.Auntentificar(txtUsuario.Text, txtContraseña.Text, usuario) > 0)
+            {
+                this.Hide();
+
+                Registro registro = new Registro(usuario);
+
+                registro.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Error en los datos", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnDirector_Click(object sender, EventArgs e)
+        {
+            Identificar("Director");
         }
     }
 }

@@ -10,41 +10,84 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 using static System.Environment;
+using Biblioteca;
 
 namespace Galimany.Patricio._2_C.TP4
 {
     public partial class Buscar : Form
     {
-        public Buscar()
+        public Buscar(string accesos)
         {
             InitializeComponent();
+            privilegios(accesos);
         }
 
-        public Alumno alumnoSeleccionado;
-        public string archivo = "";
+        private Alumno alumnoSeleccionado;
+        private Profesor profesorSeleccionado;
+        
         public Alumno AlumnoSeleccionado
         {
             get { return this.alumnoSeleccionado; }
             set { this.alumnoSeleccionado = value; }
         }
-
+        public Profesor ProfesorSeleccionado 
+        {
+            get { return this.profesorSeleccionado; }
+            set { this.profesorSeleccionado = value; }
+        }
+        private void privilegios(string accesos)
+        {
+            if (accesos == "Alumno")
+            {
+                btnArchivoTXT.Enabled = false;
+                btnExportarXML.Enabled = false;
+            }
+            else if (accesos == "Profesor")
+            {
+                btnArchivoTXT.Enabled = false;
+                btnExportarXML.Enabled = false;
+            }
+            else if (accesos == "Director")
+            {
+                btnArchivoTXT.Enabled = true;
+                btnExportarXML.Enabled = true;
+            }
+        }
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            dgvLista.DataSource = AlumnoDAL.BuscarAlumnos(txtNombre.Text, txtApellido.Text);
+            if (txtNombre.Text != "" || txtApellido.Text != "")
+            {
+                dgvLista.DataSource = null;
+                dgvLista.DataSource = AlumnoDAL<Alumno>.BuscarAlumnos(txtNombre.Text, txtApellido.Text);
+                lblPersona.Text = "Alumnos:";
+            }
+            else
+            {
+                MessageBox.Show("Coloque un nombre y apellido para buscar", "¡Atención!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if (dgvLista.SelectedRows.Count == 1)
+            if (dgvLista.SelectedRows.Count == 1 && lblPersona.Text == "Alumnos:")
             {
                 Int64 id = Convert.ToInt64(dgvLista.CurrentRow.Cells[0].Value);
-                AlumnoSeleccionado = AlumnoDAL.ObtenerAlumno(id);
+                AlumnoSeleccionado = AlumnoDAL<Alumno>.ObtenerAlumno(id);
 
                 this.Close();
             }
+            else if (lblPersona.Text == "Profesores:" && btnExportarXML.Enabled == true)
+            {
+                Int64 id = Convert.ToInt64(dgvLista.CurrentRow.Cells[1].Value);
+                ProfesorSeleccionado = AlumnoDAL<Profesor>.ObtenerProfesor(id);
+
+                this.Close();
+
+                //MessageBox.Show("Solo alumnos", "¡Atención!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             else
             {
-                MessageBox.Show("Aun no ha seleccionado ningun alumno");
+                MessageBox.Show("Aun no ha seleccionado ningun alumno", "¡Atención!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -89,7 +132,7 @@ namespace Galimany.Patricio._2_C.TP4
                 XmlTextWriter xmlWriter = new XmlTextWriter(stream, System.Text.Encoding.Unicode);
                 ds.WriteXml(xmlWriter);
                 xmlWriter.Close();
-                MessageBox.Show("Se ha Exportado el archivo.XML correctamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Se ha Exportado el archivo.XML correctamente", "¡Atención!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -104,7 +147,7 @@ namespace Galimany.Patricio._2_C.TP4
         /// <summary>
         /// Carga archivo .txt, si este no se logra abrir se lanza un excepcion.
         /// </summary>
-        public void cargarArchivo()
+        private void cargarArchivo()
         {
             TextWriter sw = new StreamWriter("Archivo.txt");
 
@@ -123,7 +166,21 @@ namespace Galimany.Patricio._2_C.TP4
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (txtNombre.Text != "" || txtApellido.Text != "")
+            {
+                dgvLista.DataSource = null;
+                dgvLista.DataSource = AlumnoDAL<Profesor>.BuscarProfesor(txtNombre.Text, txtApellido.Text);
+                lblPersona.Text = "Profesores:";
+            }
+            else
+            {
+                MessageBox.Show("Coloque un nombre y apellido para buscar", "¡Atención!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

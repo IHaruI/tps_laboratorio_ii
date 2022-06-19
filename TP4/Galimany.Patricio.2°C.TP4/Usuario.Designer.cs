@@ -40,6 +40,7 @@
             this.txtConfirmar = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnRegistroProfesor = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -94,11 +95,11 @@
             this.btnRegistrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegistrar.ForeColor = System.Drawing.Color.White;
-            this.btnRegistrar.Location = new System.Drawing.Point(105, 0);
+            this.btnRegistrar.Location = new System.Drawing.Point(21, 0);
             this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(85, 33);
+            this.btnRegistrar.Size = new System.Drawing.Size(120, 33);
             this.btnRegistrar.TabIndex = 4;
-            this.btnRegistrar.Text = "Registrar";
+            this.btnRegistrar.Text = "Registrar Alumno";
             this.btnRegistrar.UseVisualStyleBackColor = true;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
@@ -108,9 +109,9 @@
             this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(252, 0);
+            this.btnCancelar.Location = new System.Drawing.Point(300, 0);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(85, 33);
+            this.btnCancelar.Size = new System.Drawing.Size(120, 33);
             this.btnCancelar.TabIndex = 5;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -152,13 +153,28 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.panel1.Controls.Add(this.btnRegistroProfesor);
             this.panel1.Controls.Add(this.btnRegistrar);
             this.panel1.Controls.Add(this.btnCancelar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 279);
+            this.panel1.Location = new System.Drawing.Point(0, 273);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(440, 33);
             this.panel1.TabIndex = 10;
+            // 
+            // btnRegistroProfesor
+            // 
+            this.btnRegistroProfesor.FlatAppearance.BorderSize = 0;
+            this.btnRegistroProfesor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.btnRegistroProfesor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistroProfesor.ForeColor = System.Drawing.Color.White;
+            this.btnRegistroProfesor.Location = new System.Drawing.Point(163, 0);
+            this.btnRegistroProfesor.Name = "btnRegistroProfesor";
+            this.btnRegistroProfesor.Size = new System.Drawing.Size(120, 33);
+            this.btnRegistroProfesor.TabIndex = 6;
+            this.btnRegistroProfesor.Text = "Registrar Profesor";
+            this.btnRegistroProfesor.UseVisualStyleBackColor = true;
+            this.btnRegistroProfesor.Click += new System.EventHandler(this.btnRegistroProfesor_Click);
             // 
             // Usuario
             // 
@@ -166,7 +182,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
-            this.ClientSize = new System.Drawing.Size(440, 312);
+            this.ClientSize = new System.Drawing.Size(440, 306);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtConfirmar);
@@ -201,5 +217,6 @@
         private System.Windows.Forms.TextBox txtConfirmar;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnRegistroProfesor;
     }
 }

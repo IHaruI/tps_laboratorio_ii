@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Buscar));
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
@@ -44,8 +44,10 @@
             this.btnArchivoTXT = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnBuscarProfesor = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblPersona = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -57,11 +59,11 @@
             this.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
-            this.btnBuscar.Location = new System.Drawing.Point(0, 27);
+            this.btnBuscar.Location = new System.Drawing.Point(0, 12);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(98, 33);
             this.btnBuscar.TabIndex = 0;
-            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.Text = "Buscar Alumno";
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
@@ -71,7 +73,7 @@
             this.btnAceptar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAceptar.ForeColor = System.Drawing.Color.White;
-            this.btnAceptar.Location = new System.Drawing.Point(0, 113);
+            this.btnAceptar.Location = new System.Drawing.Point(1, 129);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(98, 33);
             this.btnAceptar.TabIndex = 1;
@@ -85,7 +87,7 @@
             this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(0, 255);
+            this.btnCancelar.Location = new System.Drawing.Point(1, 271);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(98, 33);
             this.btnCancelar.TabIndex = 2;
@@ -106,27 +108,27 @@
             this.dgvLista.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.dgvLista.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvLista.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLista.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLista.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvLista.EnableHeadersVisualStyles = false;
             this.dgvLista.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.dgvLista.Location = new System.Drawing.Point(12, 202);
+            this.dgvLista.Location = new System.Drawing.Point(12, 232);
             this.dgvLista.Name = "dgvLista";
             this.dgvLista.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvLista.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.dgvLista.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.dgvLista.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvLista.RowTemplate.Height = 25;
             this.dgvLista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLista.Size = new System.Drawing.Size(544, 126);
@@ -139,9 +141,9 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(243, 121);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 15);
+            this.label1.Size = new System.Drawing.Size(56, 15);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Nombre";
+            this.label1.Text = "Nombre:";
             // 
             // label2
             // 
@@ -150,9 +152,9 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(243, 153);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 15);
+            this.label2.Size = new System.Drawing.Size(55, 15);
             this.label2.TabIndex = 5;
-            this.label2.Text = "Apellido";
+            this.label2.Text = "Apellido:";
             // 
             // label3
             // 
@@ -161,9 +163,9 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(265, 52);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(221, 37);
+            this.label3.Size = new System.Drawing.Size(210, 37);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Buscar Alumnos";
+            this.label3.Text = "Buscar Persona";
             // 
             // txtNombre
             // 
@@ -185,7 +187,7 @@
             this.btnExportarXML.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.btnExportarXML.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExportarXML.ForeColor = System.Drawing.Color.White;
-            this.btnExportarXML.Location = new System.Drawing.Point(0, 207);
+            this.btnExportarXML.Location = new System.Drawing.Point(1, 223);
             this.btnExportarXML.Name = "btnExportarXML";
             this.btnExportarXML.Size = new System.Drawing.Size(98, 33);
             this.btnExportarXML.TabIndex = 9;
@@ -199,7 +201,7 @@
             this.btnArchivoTXT.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.btnArchivoTXT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnArchivoTXT.ForeColor = System.Drawing.Color.White;
-            this.btnArchivoTXT.Location = new System.Drawing.Point(0, 160);
+            this.btnArchivoTXT.Location = new System.Drawing.Point(1, 176);
             this.btnArchivoTXT.Name = "btnArchivoTXT";
             this.btnArchivoTXT.Size = new System.Drawing.Size(98, 33);
             this.btnArchivoTXT.TabIndex = 10;
@@ -219,6 +221,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.panel2.Controls.Add(this.btnBuscarProfesor);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.btnBuscar);
             this.panel2.Controls.Add(this.btnExportarXML);
@@ -228,13 +231,27 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(574, 29);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(98, 310);
+            this.panel2.Size = new System.Drawing.Size(98, 341);
             this.panel2.TabIndex = 12;
+            // 
+            // btnBuscarProfesor
+            // 
+            this.btnBuscarProfesor.FlatAppearance.BorderSize = 0;
+            this.btnBuscarProfesor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.btnBuscarProfesor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarProfesor.ForeColor = System.Drawing.Color.White;
+            this.btnBuscarProfesor.Location = new System.Drawing.Point(1, 58);
+            this.btnBuscarProfesor.Name = "btnBuscarProfesor";
+            this.btnBuscarProfesor.Size = new System.Drawing.Size(98, 33);
+            this.btnBuscarProfesor.TabIndex = 14;
+            this.btnBuscarProfesor.Text = "Buscar Profesor";
+            this.btnBuscarProfesor.UseVisualStyleBackColor = true;
+            this.btnBuscarProfesor.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.panel3.Location = new System.Drawing.Point(1, 83);
+            this.panel3.Location = new System.Drawing.Point(1, 102);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(97, 10);
             this.panel3.TabIndex = 13;
@@ -249,13 +266,24 @@
             this.pictureBox1.TabIndex = 13;
             this.pictureBox1.TabStop = false;
             // 
+            // lblPersona
+            // 
+            this.lblPersona.AutoSize = true;
+            this.lblPersona.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblPersona.ForeColor = System.Drawing.Color.White;
+            this.lblPersona.Location = new System.Drawing.Point(12, 205);
+            this.lblPersona.Name = "lblPersona";
+            this.lblPersona.Size = new System.Drawing.Size(0, 15);
+            this.lblPersona.TabIndex = 14;
+            // 
             // Buscar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
-            this.ClientSize = new System.Drawing.Size(672, 339);
+            this.ClientSize = new System.Drawing.Size(672, 370);
+            this.Controls.Add(this.lblPersona);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -295,5 +323,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnBuscarProfesor;
+        private System.Windows.Forms.Label lblPersona;
     }
 }
