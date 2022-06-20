@@ -8,7 +8,10 @@ namespace Biblioteca
 {
     public class Alumno : Persona
     {
+        // Atributo
         private string dato;
+
+        // Constructores
         public Alumno()
         {
 
@@ -26,7 +29,7 @@ namespace Biblioteca
         /// </summary>
         /// <param name="cadena"> (string) Recibe la cadena del TextBox </param>
         /// <returns> Un mensaje con la excepcion capturada si se ingreso un caracter no deseado. Si esta todo OK retorna una cadena vacia </returns>
-        public static string VerificacionCadena(string cadena)
+        public static string verificacionCadena(string cadena)
         {
             string resultado = string.Empty;
 

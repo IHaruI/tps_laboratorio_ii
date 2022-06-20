@@ -11,6 +11,9 @@ using Biblioteca;
 
 namespace Galimany.Patricio._2_C.TP4
 {
+    // Delegado
+    public delegate int Eliminar(Int64 id);
+    
     public partial class Registro : Form
     {
         public Registro(string usuario)
@@ -19,9 +22,13 @@ namespace Galimany.Patricio._2_C.TP4
 
             accesos = privilegios(usuario);
         }
+        
+        // Atributos
         private string accesos;
         private Alumno alumnoActual;
         private Profesor profesorActual;
+
+        // Getters y Setters
         public Alumno AlumnoActual
         {
             get { return this.alumnoActual; }
@@ -34,6 +41,11 @@ namespace Galimany.Patricio._2_C.TP4
             set { this.profesorActual = value; }
         }
 
+        /// <summary>
+        /// Privilegios de tipo de usuario
+        /// </summary>
+        /// <param name="usuarios"> (string) Tipo de usuario </param>
+        /// <returns> El usuario </returns>
         private string privilegios(string usuarios)
         {
             string retorno = string.Empty;
@@ -73,7 +85,7 @@ namespace Galimany.Patricio._2_C.TP4
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (Verificacion() == 1)
+            if (verificacion() == 1)
             {
                 string fecha = txtFecha.Text.Trim();
 
@@ -90,6 +102,7 @@ namespace Galimany.Patricio._2_C.TP4
                     alumno.Direccion = txtDireccion.Text;
                     alumno.FechaDeNacimiento = txtFecha.Text;
 
+                    // Aplicacion de Genericos
                     AlumnoDAL<Alumno> alumnoDAL = new AlumnoDAL<Alumno>(4);
 
                     alumnoDAL.agregar(new Alumno(alumno.Nombre));
@@ -102,7 +115,7 @@ namespace Galimany.Patricio._2_C.TP4
                     Alumno direccionA = alumnoDAL.getElemento(2);
                     Alumno fechaA = alumnoDAL.getElemento(3);
 
-                    if (AlumnoDAL<Alumno>.AgregarAlumno(nombreA.Datos(), apellidoA.Datos(), direccionA.Datos(), fechaA.Datos()) > 0)
+                    if (AlumnoDAL<Alumno>.agregarAlumno(nombreA.Datos(), apellidoA.Datos(), direccionA.Datos(), fechaA.Datos()) > 0)
                     {
                         MessageBox.Show("Datos guardados correctamente", "Datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         limpiar();
@@ -169,13 +182,17 @@ namespace Galimany.Patricio._2_C.TP4
         {
             if (accesos == "Profesor" || txtSalario.Enabled == false)
             {
-                ModificacionDeAlumno();
+                modificacionDeAlumno();
             }
             else if (accesos == "Director" && txtSalario.Enabled == true)
             {
-                ModificacionDeProfesor();
+                modificacionDeProfesor();
             }
         }
+
+        /// <summary>
+        /// Limpia los Textboxs.
+        /// </summary>
         void limpiar()
         {
             txtNombre.Clear();
@@ -187,11 +204,18 @@ namespace Galimany.Patricio._2_C.TP4
         {
 
         }
+
+        /// <summary>
+        /// Elimina un Alumno.
+        /// </summary>
         private void eliminarAlumno()
         {
             if (MessageBox.Show("¿Estas seguro que desea eliminar el alumno?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if (AlumnoDAL<Alumno>.EliminarAlumno(AlumnoActual.Id) > 0)
+                // Aplicacion de delegado.
+                Eliminar eliminar = new Eliminar(AlumnoDAL<Alumno>.eliminarAlumno);
+
+                if (eliminar(AlumnoActual.Id) > 0)
                 {
                     MessageBox.Show("Alumno eliminado correctamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -211,11 +235,18 @@ namespace Galimany.Patricio._2_C.TP4
                 MessageBox.Show("Se ha cancelado la eliminacion", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        /// <summary>
+        /// Elimina un Profesor.
+        /// </summary>
         private void eliminarProfesor()
         {
             if (MessageBox.Show("¿Estas seguro que desea eliminar al profesor?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if (AlumnoDAL<Profesor>.EliminarProfesor(ProfesorActual.Id) > 0)
+                // Aplicacion de delegado.
+                Eliminar eliminar = new Eliminar(AlumnoDAL<Profesor>.eliminarProfesor);
+
+                if (eliminar(ProfesorActual.Id) > 0)
                 {
                     MessageBox.Show("Profesor eliminado correctamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -267,7 +298,12 @@ namespace Galimany.Patricio._2_C.TP4
         {
             Application.Exit();
         }
-        private int Verificacion()
+
+        /// <summary>
+        /// Verifica que se haya escrito en los TextBoxs.
+        /// </summary>
+        /// <returns> Un 1 si todo salio bien, un 0 si no </returns>
+        private int verificacion()
         {
             string resultado;
             int aux = 0;
@@ -281,7 +317,7 @@ namespace Galimany.Patricio._2_C.TP4
             }
 
             // Verifica que no se haya ingresado numeros o un caracter que no sea letras.
-            else if ((resultado = Alumno.VerificacionCadena(txtNombre.Text)) != "")
+            else if ((resultado = Alumno.verificacionCadena(txtNombre.Text)) != "")
             {
                 MessageBox.Show(resultado, "¡Precaucion!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 epvError.SetError(txtNombre, "Ingrese un nombre valido");
@@ -299,7 +335,7 @@ namespace Galimany.Patricio._2_C.TP4
             }
 
             // Verifica que no se haya ingresado numeros o un caracter que no sea letras.
-            else if ((resultado = Alumno.VerificacionCadena(txtApellido.Text)) != "")
+            else if ((resultado = Alumno.verificacionCadena(txtApellido.Text)) != "")
             {
                 MessageBox.Show(resultado, "¡Precaucion!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 epvError.SetError(txtApellido, "Ingrese un apellido valido");
@@ -315,12 +351,29 @@ namespace Galimany.Patricio._2_C.TP4
                 txtDireccion.Focus();
                 return aux;
             }
+
+            if (txtSalario.Text == "" && txtSalario.Enabled == true)
+            {
+                epvError.SetError(txtSalario, "Debe ingresar un salario");
+                txtSalario.Focus();
+                return aux;
+            }
+
+            else if ((resultado = Profesor.verificacionSalario(txtSalario.Text)) != "" && txtSalario.Enabled == true)
+            {
+                MessageBox.Show(resultado, "¡Precaucion!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                epvError.SetError(txtSalario, "Ingrese un salario valido");
+                txtSalario.Focus();
+                return aux;
+            }
+            epvError.SetError(txtSalario, "");
+
             return aux = 1; 
         }
 
         private void btnGuardarProfesor_Click(object sender, EventArgs e)
         {
-            if (Verificacion() == 1)
+            if (verificacion() == 1)
             {
                 string fecha = txtFecha.Text.Trim();
 
@@ -352,7 +405,7 @@ namespace Galimany.Patricio._2_C.TP4
                     Profesor fechaP = profesorDAL.getElemento(3);
                     Profesor salarioP = profesorDAL.getElemento(4);
 
-                    if (AlumnoDAL<Profesor>.AgregarProfesor(nombreP.Datos(), apellidoP.Datos(), direccionP.Datos(), fechaP.Datos(), salarioP.Datos()) > 0)
+                    if (AlumnoDAL<Profesor>.agregarProfesor(nombreP.Datos(), apellidoP.Datos(), direccionP.Datos(), fechaP.Datos(), salarioP.Datos()) > 0)
                     {
                         MessageBox.Show("Datos guardados correctamente", "Datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         limpiar();
@@ -366,7 +419,11 @@ namespace Galimany.Patricio._2_C.TP4
                 }
             }
         }
-        private void ModificacionDeAlumno()
+
+        /// <summary>
+        /// Modifica un Alumno.
+        /// </summary>
+        private void modificacionDeAlumno()
         {
             Alumno alumno = new Alumno();
 
@@ -376,7 +433,7 @@ namespace Galimany.Patricio._2_C.TP4
             alumno.FechaDeNacimiento = txtFecha.Text;
             alumno.Id = alumnoActual.Id;
 
-            if (AlumnoDAL<Alumno>.ModificarAlumno(alumno) > 0)
+            if (AlumnoDAL<Alumno>.modificarAlumno(alumno) > 0)
             {
                 MessageBox.Show("Alumno modificado correctamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -401,7 +458,11 @@ namespace Galimany.Patricio._2_C.TP4
                 MessageBox.Show("Error al modificar el alumno", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
-        private void ModificacionDeProfesor()
+
+        /// <summary>
+        /// Modifica un Profesor.
+        /// </summary>
+        private void modificacionDeProfesor()
         {
             Profesor profesor = new Profesor();
 
@@ -412,7 +473,7 @@ namespace Galimany.Patricio._2_C.TP4
             profesor.Salario = txtSalario.Text;
             profesor.Id = profesorActual.Id;;
 
-            if (AlumnoDAL<Profesor>.ModificarProfesor(profesor) > 0)
+            if (AlumnoDAL<Profesor>.modificarProfesor(profesor) > 0)
             {
                 MessageBox.Show("Profesor modificado correctamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -429,6 +490,7 @@ namespace Galimany.Patricio._2_C.TP4
             }
         }
 
+        // AUN NO TERMINADO.
         private void btnTienda_Click(object sender, EventArgs e)
         {
             Tienda tienda = new Tienda();

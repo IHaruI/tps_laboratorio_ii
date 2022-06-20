@@ -12,14 +12,14 @@ namespace Galimany.Patricio._2_C.TP4
 {
     public partial class Tienda : Form
     {
-        public Tienda()
+        public Tienda()                       // AUN NO TERMINADO.
         {
             InitializeComponent();
         }
 
         private void btnComprar_Click(object sender, EventArgs e)
         {
-            if (UsuarioDAL.CargarCompra() > 0)
+            if (UsuarioDAL.cargarCompra() > 0)
             {
                 MessageBox.Show("Se ha hecho su compra correctamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

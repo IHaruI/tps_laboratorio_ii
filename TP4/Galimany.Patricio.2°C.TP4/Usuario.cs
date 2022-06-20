@@ -11,6 +11,9 @@ using Biblioteca;
 
 namespace Galimany.Patricio._2_C.TP4
 {
+    // Delegado
+    public delegate bool Crear(int resultado);
+
     public partial class Usuario : Form
     {
         public Usuario()
@@ -20,7 +23,7 @@ namespace Galimany.Patricio._2_C.TP4
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            Registro("Alumno");
+            registro("Alumno");
         }
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -29,13 +32,21 @@ namespace Galimany.Patricio._2_C.TP4
 
         private void btnRegistroProfesor_Click(object sender, EventArgs e)
         {
-            Registro("Profesor");
+            registro("Profesor");
         }
-        private void Registro(string usuario)
+
+        /// <summary>
+        /// registra un tipo de usuario.
+        /// </summary>
+        /// <param name="usuario"> (string) Tipo de usuario </param>
+        private void registro(string usuario)
         {
             if (txtContraseña.Text == txtConfirmar.Text)
             {
-                if (UsuarioDAL.CrearCuentas(txtUsuario.Text, txtContraseña.Text, usuario) > 0)
+                // Aplicacion de exprecion lambda.
+                Crear crear = new Crear(resultado => resultado > 0);
+
+                if (crear(UsuarioDAL.crearCuentas(txtUsuario.Text, txtContraseña.Text, usuario)))
                 {
                     MessageBox.Show("Se ha creado la cuenta correctamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }

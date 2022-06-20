@@ -8,6 +8,7 @@ namespace Biblioteca
 {
     public class Director : Persona
     {
+        // Constructores
         public Director()
         {
 

@@ -1,4 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Biblioteca;
 
 namespace Test
 {
@@ -17,7 +18,25 @@ namespace Test
             string resultado;
 
             // Act
-            resultado = Biblioteca.Alumno.VerificacionCadena(cadena);
+            resultado = Biblioteca.Alumno.verificacionCadena(cadena);
+
+            // Assert
+            Assert.AreEqual(expected, resultado);
+        }
+
+        /// <summary>
+        /// Teste de la validacion del salario.
+        /// </summary>
+        [TestMethod]
+        public void ValidaSalario_CuandoRecibeUnaCadena_DeberiaRetornarCadenaVacia()
+        {
+            // Arrange
+            string salario = "40000";
+            string expected = string.Empty;
+            string resultado;
+
+            // Act
+            resultado = Biblioteca.Profesor.verificacionSalario(salario);
 
             // Assert
             Assert.AreEqual(expected, resultado);

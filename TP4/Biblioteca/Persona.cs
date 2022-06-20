@@ -4,12 +4,14 @@ namespace Biblioteca
 {
     public abstract class Persona
     {
+        // Atributos
         private Int64 id;
         private string nombre;
         private string apellido;
         private string direccion;
         private string fechaDeNacimiento;
 
+        // Constructores
         public Persona()
         {
 
@@ -22,6 +24,8 @@ namespace Biblioteca
             this.direccion = direccion;
             this.fechaDeNacimiento = fechaDeNacimiento;
         }
+
+        // Getters y Setters
         public Int64 Id
         {
             get { return this.id; }

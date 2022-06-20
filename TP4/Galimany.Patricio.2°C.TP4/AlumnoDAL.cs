@@ -10,29 +10,51 @@ namespace Galimany.Patricio._2_C.TP4
 {
     public class AlumnoDAL<T>
     {
+        // Atributos
         private T[] datosElementos;
         private int i = 0;
+
+        // Constructor
         public AlumnoDAL(int z)
         {
             datosElementos = new T[z];
         }
+
+        /// <summary>
+        /// Asigna un objeto en el indice.
+        /// </summary>
+        /// <param name="obj"></param>
         public void agregar(T obj)
         {
             datosElementos[i] = obj;
             i++;
         }
+
+        /// <summary>
+        /// Devuleve un elemente en el indice especificado.
+        /// </summary>
+        /// <param name="i"></param>
+        /// <returns></returns>
         public T getElemento(int i)
         {
             return datosElementos[i];
         }
 
-        public static int AgregarAlumno(string nombre, string apellido, string direccion, string fecha)
+        /// <summary>
+        /// Agrega un Alumno a las base de datos.
+        /// </summary>
+        /// <param name="nombre"> (string) Nombre pasado por parametro </param>
+        /// <param name="apellido"> (string) Apellido pasado por parametro </param>
+        /// <param name="direccion"> (string) Direccion pasado por parametro </param>
+        /// <param name="fecha"> (string) Fecha pasado por parametro </param>
+        /// <returns> Un 1 si todo salio correctamente, 0 si no </returns>
+        public static int agregarAlumno(string nombre, string apellido, string direccion, string fecha)
         {
             int retorno = 0;
             
             try
             {
-                using (SqlConnection connection = Comun.ObtenerConexion())
+                using (SqlConnection connection = Comun.obtenerConexion())
                 {
                     SqlCommand cmd = new SqlCommand(string.Format("INSERT INTO Alumnos (Nombre, Apellido, Direccion, FechaDeNacimiento) VALUES ('{0}','{1}','{2}','{3}')", nombre, apellido, direccion, fecha), connection);
 
@@ -45,13 +67,23 @@ namespace Galimany.Patricio._2_C.TP4
                 return retorno;
             }
         }
-        public static int AgregarProfesor(string nombre, string apellido, string direccion, string fecha, string salario)
+
+        /// <summary>
+        /// Agrega un Profesor a las base de datos.
+        /// </summary>
+        /// <param name="nombre"> (string) Nombre pasado por parametro </param>
+        /// <param name="apellido"> (string) Apellido pasado por parametro </param>
+        /// <param name="direccion"> (string) Direccion pasado por parametro </param>
+        /// <param name="fecha"> (string) Fecha pasado por parametro </param>
+        /// <param name="salario"> (string) Salario pasado por parametro </param>
+        /// <returns> Un 1 si todo salio correctamente, 0 si no </returns>
+        public static int agregarProfesor(string nombre, string apellido, string direccion, string fecha, string salario)
         {
             int retorno = 0;
 
             try
             {
-                using (SqlConnection connection = Comun.ObtenerConexion())
+                using (SqlConnection connection = Comun.obtenerConexion())
                 {
                     SqlCommand cmd = new SqlCommand(string.Format("INSERT INTO Profesor (Nombre, Apellido, Direccion, FechaDeNacimiento, Salario) VALUES ('{0}','{1}','{2}','{3}',{4})", nombre, apellido, direccion, fecha, salario), connection);
 
@@ -64,11 +96,18 @@ namespace Galimany.Patricio._2_C.TP4
                 return retorno;
             }
         }
-        public static List<Alumno> BuscarAlumnos(string nombre, string apellido)
+
+        /// <summary>
+        /// Busca a los Alumnos registrados en la base de datos.
+        /// </summary>
+        /// <param name="nombre"> (string) Nombre a buscar </param>
+        /// <param name="apellido"> (string) Apellido a buscar </param>
+        /// <returns> Una lista de los alumnos encontrados </returns>
+        public static List<Alumno> buscarAlumnos(string nombre, string apellido)
         {
             List<Alumno> lista = new List<Alumno>();
 
-            using (SqlConnection connection = Comun.ObtenerConexion())
+            using (SqlConnection connection = Comun.obtenerConexion())
             {
                 SqlCommand command = new SqlCommand(string.Format("SELECT Id, Nombre, Apellido, Direccion, FechaDeNacimiento FROM Alumnos WHERE Nombre LIKE '%{0}%' AND Apellido LIKE '%{1}%'", nombre, apellido), connection);
 
@@ -90,11 +129,18 @@ namespace Galimany.Patricio._2_C.TP4
                 return lista;
             }
         }
-        public static List<Profesor> BuscarProfesor(string nombre, string apellido)
+
+        /// <summary>
+        /// Busca a los Profesores registrados en la base de datos.
+        /// </summary>
+        /// <param name="nombre"> (string) Nombre a buscar </param>
+        /// <param name="apellido"> (string) apellido a buscar </param>
+        /// <returns> Una lista de los profesores encontrados </returns>
+        public static List<Profesor> buscarProfesor(string nombre, string apellido)
         {
             List<Profesor> lista = new List<Profesor>();
 
-            using (SqlConnection connection = Comun.ObtenerConexion())
+            using (SqlConnection connection = Comun.obtenerConexion())
             {
                 SqlCommand command = new SqlCommand(string.Format("SELECT Id, Nombre, Apellido, Direccion, FechaDeNacimiento, Salario FROM Profesor WHERE Nombre LIKE '%{0}%' AND Apellido LIKE '%{1}%'", nombre, apellido), connection);
 
@@ -117,9 +163,15 @@ namespace Galimany.Patricio._2_C.TP4
                 return lista;
             }
         }
-        public static Alumno ObtenerAlumno(Int64 id)
+
+        /// <summary>
+        /// Obtiene los datos del Alumno mediante du Id.
+        /// </summary>
+        /// <param name="id"> (Int64) Id a buscar </param>
+        /// <returns> Un alumno </returns>
+        public static Alumno obtenerAlumno(Int64 id)
         {
-            using (SqlConnection connection = Comun.ObtenerConexion())
+            using (SqlConnection connection = Comun.obtenerConexion())
             {
                 Alumno alumno = new Alumno();
 
@@ -139,9 +191,15 @@ namespace Galimany.Patricio._2_C.TP4
                 return alumno;
             }
         }
-        public static Profesor ObtenerProfesor(Int64 id)
+
+        /// <summary>
+        /// Obtiene los datos del Profesor mediante du Id.
+        /// </summary>
+        /// <param name="id"> (Int64) Id a buscar </param>
+        /// <returns> Un profesor </returns>
+        public static Profesor obtenerProfesor(Int64 id)
         {
-            using (SqlConnection connection = Comun.ObtenerConexion())
+            using (SqlConnection connection = Comun.obtenerConexion())
             {
                 Profesor profesor = new Profesor();
 
@@ -162,13 +220,19 @@ namespace Galimany.Patricio._2_C.TP4
                 return profesor;
             }
         }
-        public static int ModificarAlumno(Alumno alumno)
+
+        /// <summary>
+        /// Modifica un Alumno.
+        /// </summary>
+        /// <param name="alumno"> (Alumno) alumno pasado por parametro </param>
+        /// <returns> Un 1 si todo salio bien, o un 0 si no </returns>
+        public static int modificarAlumno(Alumno alumno)
         {
             int retorno = 0;
 
             try
             {
-                using(SqlConnection connection = Comun.ObtenerConexion())
+                using(SqlConnection connection = Comun.obtenerConexion())
                 {
                     SqlCommand command = new SqlCommand(string.Format("UPDATE Alumnos SET Nombre='{0}', Apellido='{1}', Direccion='{2}', FechaDeNacimiento='{3}' WHERE Id={4}",
                         alumno.Nombre, alumno.Apellido, alumno.Direccion, alumno.FechaDeNacimiento, alumno.Id), connection);
@@ -183,13 +247,19 @@ namespace Galimany.Patricio._2_C.TP4
                 return retorno;
             }
         }
-        public static int ModificarProfesor(Profesor profesor)
+
+        /// <summary>
+        /// Modifica un Profesor.
+        /// </summary>
+        /// <param name="profesor"> (Profesor) profesor pasado por parametro </param>
+        /// <returns> Un 1 si todo salio bien, o un 0 si no </returns>
+        public static int modificarProfesor(Profesor profesor)
         {
             int retorno = 0;
 
             try
             {
-                using (SqlConnection connection = Comun.ObtenerConexion())
+                using (SqlConnection connection = Comun.obtenerConexion())
                 {
                     SqlCommand command = new SqlCommand(string.Format("UPDATE Profesor SET Nombre='{0}', Apellido='{1}', Direccion='{2}', FechaDeNacimiento='{3}', Salario='{4}' WHERE Id={5}",
                         profesor.Nombre, profesor.Apellido, profesor.Direccion, profesor.FechaDeNacimiento, profesor.Salario, profesor.Id), connection);
@@ -204,11 +274,17 @@ namespace Galimany.Patricio._2_C.TP4
                 return retorno;
             }
         }
-        public static int EliminarAlumno(Int64 id)
+
+        /// <summary>
+        /// Elimina un Alumno mediante su Id.
+        /// </summary>
+        /// <param name="id"> (Int64) Id a buscar </param>
+        /// <returns> Un 1 si todo salio bien, o un 0 si no </returns>
+        public static int eliminarAlumno(Int64 id)
         {
             int retorno = 0;
 
-            using (SqlConnection connection = Comun.ObtenerConexion())
+            using (SqlConnection connection = Comun.obtenerConexion())
             {
                 SqlCommand command = new SqlCommand(String.Format("DELETE FROM Alumnos WHERE Id={0}", id), connection);
 
@@ -217,11 +293,17 @@ namespace Galimany.Patricio._2_C.TP4
             }
             return retorno;
         }
-        public static int EliminarProfesor(Int64 id)
+
+        /// <summary>
+        /// Elimina un Profesor mediante su Id.
+        /// </summary>
+        /// <param name="id"> (Int64) Id a buscar </param>
+        /// <returns> Un 1 si todo salio bien, o un 0 si no </returns>
+        public static int eliminarProfesor(Int64 id)
         {
             int retorno = 0;
 
-            using (SqlConnection connection = Comun.ObtenerConexion())
+            using (SqlConnection connection = Comun.obtenerConexion())
             {
                 SqlCommand command = new SqlCommand(String.Format("DELETE FROM Profesor WHERE Id={0}", id), connection);
 

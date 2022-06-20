@@ -22,9 +22,11 @@ namespace Galimany.Patricio._2_C.TP4
             privilegios(accesos);
         }
 
+        // Atributos
         private Alumno alumnoSeleccionado;
         private Profesor profesorSeleccionado;
         
+        // Getters y Setters
         public Alumno AlumnoSeleccionado
         {
             get { return this.alumnoSeleccionado; }
@@ -35,6 +37,11 @@ namespace Galimany.Patricio._2_C.TP4
             get { return this.profesorSeleccionado; }
             set { this.profesorSeleccionado = value; }
         }
+
+        /// <summary>
+        /// Privilegios que temdram los usuarios.
+        /// </summary>
+        /// <param name="accesos"> (string) Tipo de usuario </param>
         private void privilegios(string accesos)
         {
             if (accesos == "Alumno")
@@ -58,7 +65,7 @@ namespace Galimany.Patricio._2_C.TP4
             if (txtNombre.Text != "" || txtApellido.Text != "")
             {
                 dgvLista.DataSource = null;
-                dgvLista.DataSource = AlumnoDAL<Alumno>.BuscarAlumnos(txtNombre.Text, txtApellido.Text);
+                dgvLista.DataSource = AlumnoDAL<Alumno>.buscarAlumnos(txtNombre.Text, txtApellido.Text);
                 lblPersona.Text = "Alumnos:";
             }
             else
@@ -72,18 +79,16 @@ namespace Galimany.Patricio._2_C.TP4
             if (dgvLista.SelectedRows.Count == 1 && lblPersona.Text == "Alumnos:")
             {
                 Int64 id = Convert.ToInt64(dgvLista.CurrentRow.Cells[0].Value);
-                AlumnoSeleccionado = AlumnoDAL<Alumno>.ObtenerAlumno(id);
+                AlumnoSeleccionado = AlumnoDAL<Alumno>.obtenerAlumno(id);
 
                 this.Close();
             }
             else if (lblPersona.Text == "Profesores:" && btnExportarXML.Enabled == true)
             {
                 Int64 id = Convert.ToInt64(dgvLista.CurrentRow.Cells[1].Value);
-                ProfesorSeleccionado = AlumnoDAL<Profesor>.ObtenerProfesor(id);
+                ProfesorSeleccionado = AlumnoDAL<Profesor>.obtenerProfesor(id);
 
                 this.Close();
-
-                //MessageBox.Show("Solo alumnos", "¡Atención!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
@@ -93,9 +98,13 @@ namespace Galimany.Patricio._2_C.TP4
 
         private void btnExportarXML_Click(object sender, EventArgs e)
         {
-            ExportarXML();
+            exportarXML();
         }
-        private void ExportarXML()
+
+        /// <summary>
+        /// Guarda los datos del DataGridView en un archivo.XML
+        /// </summary>
+        private void exportarXML()
         {
             var ds = new DataSet();
             var dt = new DataTable();
@@ -174,7 +183,7 @@ namespace Galimany.Patricio._2_C.TP4
             if (txtNombre.Text != "" || txtApellido.Text != "")
             {
                 dgvLista.DataSource = null;
-                dgvLista.DataSource = AlumnoDAL<Profesor>.BuscarProfesor(txtNombre.Text, txtApellido.Text);
+                dgvLista.DataSource = AlumnoDAL<Profesor>.buscarProfesor(txtNombre.Text, txtApellido.Text);
                 lblPersona.Text = "Profesores:";
             }
             else

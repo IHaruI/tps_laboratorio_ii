@@ -10,7 +10,11 @@ namespace Galimany.Patricio._2_C.TP4
 {
     public class Comun
     {
-        public static SqlConnection ObtenerConexion()
+        /// <summary>
+        /// Conexion a Sql Server
+        /// </summary>
+        /// <returns> La conexion </returns>
+        public static SqlConnection obtenerConexion()
         {
             string connectionString = @"Server=.;Database=EscuelaBD; Trusted_Connection=True;";
             SqlConnection conexion = new SqlConnection(connectionString);

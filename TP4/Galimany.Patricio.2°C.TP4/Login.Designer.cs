@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -36,10 +37,13 @@
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.txtContraseña = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnDirector = new System.Windows.Forms.Button();
             this.btnProfesor = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnDirector = new System.Windows.Forms.Button();
+            this.pgbCarga = new System.Windows.Forms.ProgressBar();
+            this.tmrTiempo = new System.Windows.Forms.Timer(this.components);
+            this.lblCargando = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -49,7 +53,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(33, 138);
+            this.label1.Location = new System.Drawing.Point(95, 160);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 15);
             this.label1.TabIndex = 0;
@@ -60,7 +64,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(33, 201);
+            this.label2.Location = new System.Drawing.Point(95, 194);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 15);
             this.label2.TabIndex = 1;
@@ -72,9 +76,9 @@
             this.btnAlumno.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.btnAlumno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAlumno.ForeColor = System.Drawing.Color.White;
-            this.btnAlumno.Location = new System.Drawing.Point(12, 0);
+            this.btnAlumno.Location = new System.Drawing.Point(0, 27);
             this.btnAlumno.Name = "btnAlumno";
-            this.btnAlumno.Size = new System.Drawing.Size(85, 33);
+            this.btnAlumno.Size = new System.Drawing.Size(89, 33);
             this.btnAlumno.TabIndex = 2;
             this.btnAlumno.Text = "Alumno";
             this.btnAlumno.UseVisualStyleBackColor = true;
@@ -86,7 +90,7 @@
             this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(354, 0);
+            this.btnCancelar.Location = new System.Drawing.Point(3, 208);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(85, 33);
             this.btnCancelar.TabIndex = 3;
@@ -96,17 +100,17 @@
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(155, 135);
+            this.txtUsuario.Location = new System.Drawing.Point(217, 157);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(273, 23);
+            this.txtUsuario.Size = new System.Drawing.Size(132, 23);
             this.txtUsuario.TabIndex = 4;
             // 
             // txtContraseña
             // 
-            this.txtContraseña.Location = new System.Drawing.Point(155, 193);
+            this.txtContraseña.Location = new System.Drawing.Point(217, 186);
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.PasswordChar = '*';
-            this.txtContraseña.Size = new System.Drawing.Size(273, 23);
+            this.txtContraseña.Size = new System.Drawing.Size(132, 23);
             this.txtContraseña.TabIndex = 5;
             this.txtContraseña.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContraseña_KeyPress);
             // 
@@ -114,14 +118,28 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.panel1.Controls.Add(this.btnDirector);
-            this.panel1.Controls.Add(this.btnProfesor);
             this.panel1.Controls.Add(this.btnAlumno);
             this.panel1.Controls.Add(this.btnCancelar);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 234);
+            this.panel1.Controls.Add(this.btnProfesor);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(452, 33);
+            this.panel1.Size = new System.Drawing.Size(89, 267);
             this.panel1.TabIndex = 6;
+            // 
+            // btnDirector
+            // 
+            this.btnDirector.FlatAppearance.BorderSize = 0;
+            this.btnDirector.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.btnDirector.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDirector.ForeColor = System.Drawing.Color.White;
+            this.btnDirector.Location = new System.Drawing.Point(4, 148);
+            this.btnDirector.Name = "btnDirector";
+            this.btnDirector.Size = new System.Drawing.Size(85, 33);
+            this.btnDirector.TabIndex = 5;
+            this.btnDirector.Text = "Director";
+            this.btnDirector.UseVisualStyleBackColor = true;
+            this.btnDirector.Click += new System.EventHandler(this.btnDirector_Click);
             // 
             // btnProfesor
             // 
@@ -129,7 +147,7 @@
             this.btnProfesor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.btnProfesor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProfesor.ForeColor = System.Drawing.Color.White;
-            this.btnProfesor.Location = new System.Drawing.Point(126, 0);
+            this.btnProfesor.Location = new System.Drawing.Point(4, 86);
             this.btnProfesor.Name = "btnProfesor";
             this.btnProfesor.Size = new System.Drawing.Size(85, 33);
             this.btnProfesor.TabIndex = 4;
@@ -140,7 +158,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(33, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(95, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(121, 111);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -152,25 +170,33 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(255, 47);
+            this.label3.Location = new System.Drawing.Point(244, 48);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(89, 37);
             this.label3.TabIndex = 8;
             this.label3.Text = "Login";
             // 
-            // btnDirector
+            // pgbCarga
             // 
-            this.btnDirector.FlatAppearance.BorderSize = 0;
-            this.btnDirector.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.btnDirector.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDirector.ForeColor = System.Drawing.Color.White;
-            this.btnDirector.Location = new System.Drawing.Point(240, 0);
-            this.btnDirector.Name = "btnDirector";
-            this.btnDirector.Size = new System.Drawing.Size(85, 33);
-            this.btnDirector.TabIndex = 5;
-            this.btnDirector.Text = "Director";
-            this.btnDirector.UseVisualStyleBackColor = true;
-            this.btnDirector.Click += new System.EventHandler(this.btnDirector_Click);
+            this.pgbCarga.Location = new System.Drawing.Point(217, 215);
+            this.pgbCarga.Name = "pgbCarga";
+            this.pgbCarga.Size = new System.Drawing.Size(132, 23);
+            this.pgbCarga.TabIndex = 9;
+            // 
+            // tmrTiempo
+            // 
+            this.tmrTiempo.Interval = 1700;
+            this.tmrTiempo.Tick += new System.EventHandler(this.tmrTiempo_Tick);
+            // 
+            // lblCargando
+            // 
+            this.lblCargando.AutoSize = true;
+            this.lblCargando.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblCargando.ForeColor = System.Drawing.Color.White;
+            this.lblCargando.Location = new System.Drawing.Point(95, 223);
+            this.lblCargando.Name = "lblCargando";
+            this.lblCargando.Size = new System.Drawing.Size(0, 15);
+            this.lblCargando.TabIndex = 10;
             // 
             // Login
             // 
@@ -178,7 +204,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
-            this.ClientSize = new System.Drawing.Size(452, 267);
+            this.ClientSize = new System.Drawing.Size(365, 267);
+            this.Controls.Add(this.lblCargando);
+            this.Controls.Add(this.pgbCarga);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
@@ -211,5 +239,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnProfesor;
         private System.Windows.Forms.Button btnDirector;
+        private System.Windows.Forms.ProgressBar pgbCarga;
+        private System.Windows.Forms.Timer tmrTiempo;
+        private System.Windows.Forms.Label lblCargando;
     }
 }
