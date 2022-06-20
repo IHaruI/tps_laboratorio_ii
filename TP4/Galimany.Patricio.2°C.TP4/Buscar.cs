@@ -83,7 +83,7 @@ namespace Galimany.Patricio._2_C.TP4
 
                 this.Close();
             }
-            else if (lblPersona.Text == "Profesores:" && btnExportarXML.Enabled == true)
+            else if (lblPersona.Text == "Profesores:" && btnExportarXML.Enabled == true && dgvLista.SelectedRows.Count == 1)
             {
                 Int64 id = Convert.ToInt64(dgvLista.CurrentRow.Cells[1].Value);
                 ProfesorSeleccionado = AlumnoDAL<Profesor>.obtenerProfesor(id);
@@ -170,7 +170,7 @@ namespace Galimany.Patricio._2_C.TP4
                                + dgvLista.Rows[i].Cells[3].Value.ToString() + "\t");
             }
             sw.Close();
-            MessageBox.Show("Datos Exportados correctamente");
+            MessageBox.Show("Datos Exportados correctamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

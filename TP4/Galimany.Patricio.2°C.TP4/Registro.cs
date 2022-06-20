@@ -223,7 +223,16 @@ namespace Galimany.Patricio._2_C.TP4
 
                     btnEliminar.Enabled = false;
                     btnModificar.Enabled = false;
-                    btnGuardarAlumno.Enabled = true;
+
+                    if (accesos == "Profesor")
+                    {
+                        btnGuardarAlumno.Enabled = true;
+                    }
+                    else
+                    {
+                        btnGuardarProfesor.Enabled = true;
+                        txtSalario.Enabled = true;
+                    }
                 }
                 else
                 {
@@ -254,7 +263,15 @@ namespace Galimany.Patricio._2_C.TP4
 
                     btnEliminar.Enabled = false;
                     btnModificar.Enabled = false;
-                    btnGuardarAlumno.Enabled = true;
+
+                    if (accesos == "Director")
+                    {
+                        btnGuardarProfesor.Enabled = true;
+                    }
+                    else
+                    {
+                        btnGuardarAlumno.Enabled = true;
+                    }
                     txtSalario.Clear();
                 }
                 else
@@ -445,6 +462,7 @@ namespace Galimany.Patricio._2_C.TP4
                     btnGuardarAlumno.Enabled = false;
                     btnModificar.Enabled = false;
                     btnEliminar.Enabled = false;
+                    txtSalario.Enabled = true;
                 }
                 else
                 {

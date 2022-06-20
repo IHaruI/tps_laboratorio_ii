@@ -1,4 +1,17 @@
-2	Rodrigo	Morales	Villa linda	
-3	Pedro	Alverto	Avellaneda	
-4	Lucas Agustin	Jorgenson	Arana 2013	
-5	Ana Maria	Fernandez	Frech	
+1	Ariana	Bautista	9 de Julio	
+2	Encina	Alfredo	27 de Febrero	
+3	Juan	Miguel	Acassuso	
+5	Antonio	Bermúdez	Arana	
+6	Manrique	Salvador	Melian	
+7	Antonio	Bernal	Acevedo	
+8	Rosales	Gigliola	Achala	
+10	Velasco	Humberto	Avellaneda	
+11	Alejandro	Bolaños	Monroe	
+12	Sánchez	César	Derqui	
+14	Abel	Buenfil	Achira	
+15	Iván	Burguete	Achupallas	
+16	García	Miguel	Aconcagua	
+17	Ángel	Bustamante	Chiclana	
+18	Rosario	Alemán	Cobo	
+19	Eduardo	Díaz	España	
+21	Gabriel	Domínguez	Independencia	

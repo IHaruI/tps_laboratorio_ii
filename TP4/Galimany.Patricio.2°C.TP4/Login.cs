@@ -61,18 +61,12 @@ namespace Galimany.Patricio._2_C.TP4
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
-                if (UsuarioDAL.auntentificar(txtUsuario.Text, txtContraseña.Text, "Alumno") > 0)
-                {
-                    this.Hide();
+                hilo = new Thread(new ThreadStart(progreso));
+                hilo.Start();
+                lblCargando.Text = "Cargando . . .";
 
-                    Registro registro = new Registro("Alumno");
-
-                    registro.ShowDialog();
-                }
-                else
-                {
-                    MessageBox.Show("Error en los datos", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                this.usuario = "Alumno";
+                tmrTiempo.Start();
             }
         }
         private void btnProfesor_Click(object sender, EventArgs e)

@@ -56,6 +56,7 @@ namespace Galimany.Patricio._2_C.TP4
             this.label7 = new System.Windows.Forms.Label();
             this.lblCreacion = new System.Windows.Forms.Label();
             this.btnTienda = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ptbImagen)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.epvError)).BeginInit();
@@ -319,13 +320,30 @@ namespace Galimany.Patricio._2_C.TP4
             // 
             // btnTienda
             // 
-            this.btnTienda.Location = new System.Drawing.Point(132, 315);
+            this.btnTienda.Enabled = false;
+            this.btnTienda.FlatAppearance.BorderSize = 0;
+            this.btnTienda.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.btnTienda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTienda.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnTienda.ForeColor = System.Drawing.Color.White;
+            this.btnTienda.Location = new System.Drawing.Point(444, 311);
             this.btnTienda.Name = "btnTienda";
             this.btnTienda.Size = new System.Drawing.Size(75, 23);
             this.btnTienda.TabIndex = 21;
             this.btnTienda.Text = "Tienda";
             this.btnTienda.UseVisualStyleBackColor = true;
             this.btnTienda.Click += new System.EventHandler(this.btnTienda_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(414, 296);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(117, 15);
+            this.label8.TabIndex = 22;
+            this.label8.Text = "(En mantenimiento)";
             // 
             // Registro
             // 
@@ -334,6 +352,7 @@ namespace Galimany.Patricio._2_C.TP4
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.ClientSize = new System.Drawing.Size(531, 344);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.btnTienda);
             this.Controls.Add(this.lblCreacion);
             this.Controls.Add(this.txtSalario);
@@ -357,7 +376,7 @@ namespace Galimany.Patricio._2_C.TP4
             this.MinimizeBox = false;
             this.Name = "Registro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Registro de Alumnos";
+            this.Text = "Registros";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Registro_FormClosing);
             this.Load += new System.EventHandler(this.Registro_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ptbImagen)).EndInit();
@@ -394,5 +413,6 @@ namespace Galimany.Patricio._2_C.TP4
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lblCreacion;
         private System.Windows.Forms.Button btnTienda;
+        private System.Windows.Forms.Label label8;
     }
 }

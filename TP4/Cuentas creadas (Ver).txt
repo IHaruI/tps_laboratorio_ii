@@ -1,0 +1,11 @@
+-- Alumno:
+usuario : usuario
+contraseña: 1234
+
+-- Profesor:
+usuario: profesor
+contraseña: 12345
+
+-- Director:
+usuario: director
+contraseña: Director
